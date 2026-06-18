@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashish Dhanurkar — Principal Technical Program Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1F3A;
+    --navy-mid: #152E52;
+    --blue: #1A6DB5;
+    --blue-light: #E8F1FB;
+    --slate: #4A5568;
+    --muted: #718096;
+    --border: #E2E8F0;
+    --white: #FFFFFF;
+    --off-white: #F7F9FC;
+    --accent: #C8A96E;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--navy);
+    background: var(--white);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11, 31, 58, 0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    color: var(--white);
+    font-size: 17px;
+    letter-spacing: 0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 120px 2rem 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .hero-inner {
+    max-width: 860px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+    padding: 11px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: rgba(255,255,255,0.85);
+    padding: 11px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.7); }
+
+  /* STATS CARD */
+  .stats-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-width: 200px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+  .stat-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 2rem; }
+  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(26px, 3vw, 36px);
+    color: var(--navy);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--slate);
+    margin-bottom: 1rem;
+    font-size: 15.5px;
+  }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+  .skill-tag {
+    background: var(--blue-light);
+    color: var(--blue);
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .timeline-meta {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .timeline-role {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .timeline-company {
+    font-size: 14px;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  .timeline-desc {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+  .timeline-achievement {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: var(--off-white);
+    border-left: 3px solid var(--accent);
+    font-size: 13.5px;
+    color: var(--slate);
+    border-radius: 0 3px 3px 0;
+  }
+
+  /* CHAT SECTION */
+  .chat-section { background: var(--off-white); }
+  .chat-intro {
+    font-size: 15.5px;
+    color: var(--slate);
+    max-width: 600px;
+    margin-bottom: 2rem;
+  }
+  .chat-frame-wrap {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .chat-frame-wrap iframe {
+    width: 100%;
+    height: 650px;
+    border: none;
+    display: block;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .contact-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.15s;
+    display: block;
+  }
+  .contact-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+  .contact-card-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+  .contact-card-value { font-size: 15px; color: var(--navy); font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 2rem;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .stats-card { flex-direction: row; flex-wrap: wrap; justify-content: center; min-width: unset; }
+    .about-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Ashish Dhanurkar</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#chat">Ask me</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Principal Technical Program Manager</p>
+      <h1>Delivering programs<br>that move the cloud.</h1>
+      <p class="hero-sub">24+ years driving cloud infrastructure, AI, and enterprise transformation across Oracle, Microsoft, Boeing, and Liberty Mutual. Based in Bothell, WA — open to new opportunities.</p>
+      <div class="hero-actions">
+        <a href="#chat" class="btn-primary">Talk to my AI assistant</a>
+        <a href="https://linkedin.com/in/dhanurkar" target="_blank" class="btn-ghost">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="stats-card">
+      <div class="stat-item">
+        <div class="stat-num">24+</div>
+        <div class="stat-label">Years experience</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">46</div>
+        <div class="stat-label">Cloud regions delivered</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">85%</div>
+        <div class="stat-label">Faster build cycles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <p class="section-label">Background</p>
+    <h2 class="section-title">Engineering leader who speaks both languages.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a Principal TPM who operates at the intersection of deep technical fluency and large-scale program execution. I don't just manage programs — I understand the engineering beneath them, which makes me a trusted partner for both executives and hands-on engineers.</p>
+        <p>Most recently at Oracle Cloud Infrastructure, I owned end-to-end delivery of OCI's global region build pipeline — coordinating 240+ cloud service teams across planning, provisioning, and launch phases to deliver 46 regions on schedule.</p>
+        <p>I'm currently upskilling in AI/ML (LLM engineering, RAG, AI Agents) and applying those skills hands-on at Mirror, an early-stage AI startup.</p>
+      </div>
+      <div>
+        <p style="font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:12px;">Core competencies</p>
+        <div class="skills-list">
+          <span class="skill-tag">Cloud Infrastructure</span>
+          <span class="skill-tag">Agile / SAFe</span>
+          <span class="skill-tag">OKR / KPI Tracking</span>
+          <span class="skill-tag">AI / ML Programs</span>
+          <span class="skill-tag">Cross-functional Leadership</span>
+          <span class="skill-tag">Risk Management</span>
+          <span class="skill-tag">OCI / Azure</span>
+          <span class="skill-tag">CI/CD Pipelines</span>
+          <span class="skill-tag">Exec Stakeholder Comms</span>
+          <span class="skill-tag">Roadmap Planning</span>
+          <span class="skill-tag">Budget & Capacity</span>
+          <span class="skill-tag">Offshore Coordination</span>
+          <span class="skill-tag">Jira / Confluence</span>
+          <span class="skill-tag">LLM Engineering</span>
+          <span class="skill-tag">RAG Pipelines</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:var(--off-white);">
+  <div class="section-inner">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Where I've delivered.</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <p class="timeline-meta">Nov 2025 – Present</p>
+        <p class="timeline-role">Technical Program Manager</p>
+        <p class="timeline-company">Mirror · Seattle, WA</p>
+        <p class="timeline-desc">Driving end-to-end delivery of LLM-powered interview features at an early-stage AI startup — roadmap planning, sprint execution, OKR tracking across product, engineering, and AI.</p>
+        <div class="timeline-achievement">Drove 0-to-1 launch of AI mock interview feature within a 3-month runway. Reduced AI model evaluation cycles by 40% through structured evaluation frameworks.</div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-meta">Aug 2022 – Oct 2025</p>
+        <p class="timeline-role">Principal Technical Program Manager — Region Build</p>
+        <p class="timeline-company">Oracle Cloud Infrastructure (OCI) · Seattle, WA</p>
+        <p class="timeline-desc">Owned end-to-end program management for OCI's global cloud region build pipeline, coordinating data center vendors, hardware teams, and 240+ cloud service teams.</p>
+        <div class="timeline-achievement">Reduced region build duration from 200+ days to 30 days (85% faster). Cut service onboarding from 12 weeks to 4 weeks through automation and process redesign.</div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-meta">Dec 2017 – Jul 2022</p>
+        <p class="timeline-role">Senior Technical Program Manager</p>
+        <p class="timeline-company">Boeing · Renton, WA (via TCS America)</p>
+        <p class="timeline-desc">Led three engineering teams across on-site and offshore developers delivering integrated information systems for fleet services, supplier management, and procurement.</p>
+        <div class="timeline-achievement">Re-architected QMAP system using microservices — 75% faster feature delivery, 80% reduction in testing effort, 25% less redundant code.</div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-meta">Jan 2014 – Nov 2017</p>
+        <p class="timeline-role">Technical Program Manager</p>
+        <p class="timeline-company">Liberty Mutual · Seattle, WA (via TCS America)</p>
+        <p class="timeline-desc">Managed development and migration of enterprise insurance applications to a new SharePoint portal, leading a global Agile team across technical, financial, and business workstreams.</p>
+        <div class="timeline-achievement">Delivered Agent Portal driving 30% business increase. Reduced testing cycle by 60% via CI/CD, collapsing 6–9 month releases to monthly.</div>
+      </div>
+
+      <div class="timeline-item">
+        <p class="timeline-meta">Aug 2008 – Dec 2013</p>
+        <p class="timeline-role">Technical Lead</p>
+        <p class="timeline-company">Microsoft · Redmond, WA (via Catalytic Software)</p>
+        <p class="timeline-desc">Led development and improvement of SharePoint cloud services serving 2M+ enterprise customers. Played a critical role in achieving near-100% availability SLA commitments.</p>
+        <div class="timeline-achievement">Built URL monitoring tool reducing service interruptions by 40%. Reduced SharePoint build and config time by 50% through automated provisioning.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section id="chat" class="chat-section">
+  <div class="section-inner">
+    <p class="section-label">AI Assistant</p>
+    <h2 class="section-title">Have a question? Just ask.</h2>
+    <p class="chat-intro">My AI assistant knows my full background — ask about specific projects, tech stack, leadership style, or whether I'd be a good fit for your team.</p>
+    <div class="chat-frame-wrap">
+      <iframe
+        src="https://dhanurkar-career_conversations.hf.space"
+        title="Chat with Ashish's AI assistant">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-title">Let's talk.</h2>
+    <p style="color:var(--slate);font-size:15.5px;max-width:520px;">I'm open to Principal TPM or Senior TPM roles in cloud infrastructure, AI/ML platforms, or large-scale enterprise transformation. U.S. citizen — no sponsorship required.</p>
+    <div class="contact-grid">
+      <a href="mailto:dhanurkarashish@gmail.com" class="contact-card">
+        <p class="contact-card-label">Email</p>
+        <p class="contact-card-value">dhanurkarashish@gmail.com</p>
+      </a>
+      <a href="https://linkedin.com/in/dhanurkar" target="_blank" class="contact-card">
+        <p class="contact-card-label">LinkedIn</p>
+        <p class="contact-card-value">linkedin.com/in/dhanurkar</p>
+      </a>
+      <a href="tel:4254493107" class="contact-card">
+        <p class="contact-card-label">Phone</p>
+        <p class="contact-card-value">425-449-3107</p>
+      </a>
+      <a href="https://dhanurkar-career_conversations.hf.space" target="_blank" class="contact-card">
+        <p class="contact-card-label">Location</p>
+        <p class="contact-card-value">Bothell, WA</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Ashish Dhanurkar · Built with purpose, not templates.
+</footer>
+
+</body>
+</html>
